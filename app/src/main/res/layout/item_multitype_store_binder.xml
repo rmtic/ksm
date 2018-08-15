@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="com.igp.ksm.model.viewmodel.ItemStoreViewModel"/>
+        <variable
+            name="data"
+            type="ItemStoreViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="4dp">
+        <ImageView
+            android:src="@{data.image_cover}"
+            android:layout_width="100dp"
+            android:layout_height="100dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                tools:text="标题"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:textSize="12sp"
+                android:text="@{`店铺 : `+ data.storeName}" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:onClick="@{()-> data.follow()}"
+                android:text='@{data.isFollow?"已经关注":"未关注"}'
+                android:background="@color/orange"/>
+        </LinearLayout>
+    </LinearLayout>
+</layout>
